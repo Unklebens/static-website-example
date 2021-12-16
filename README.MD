@@ -8,18 +8,54 @@ To be used with AJC under Fraze's supervision
 [![Build Status](http://18.207.3.70:8080/buildStatus/icon?job=TP9)](http://18.207.3.70:8080/job/TP9/)
 
 
-License bullshit
-----------------------
-
-This static website is based on the Dimension template by [HTML5 UP](https://html5up.net/)
-
-Creative Commons License
-All of the site templates I create for [HTML5 UP](https://html5up.net/) are licensed under the Creative Commons Attribution 3.0 License, which means you can:
- - Use them for personal stuff
- - Use them for commercial stuff
- - Change them however you like
+# TP9
 
 
-... all for free, yo. In exchange, just give HTML5 UP credit for the design and tell your friends about it :)
 
-More info [here](https://html5up.net/license).
+## Dockerfile
+Cloner https://github.com/Unklebens/static-website-example.git
+
+````
+FROM nginx
+COPY ./ /usr/share/nginx/html
+````
+
+Puis en shell
+````
+docker build -t fahimx/sitedirane:1.0 .
+vi Dockerfile
+docker build -t fahimx/sitedirane:1.0 .
+docker run -d -p 80:80 fahimx/sitedirane:1.0
+````
+Test OK
+
+commit
+````
+git add Dockerfile
+git commit -m "+Dockerfile"
+git push
+````
+
+## Instances EC2
+
+Ubuntu server T2.micro avec userdata et ip publiques dans un SG avec 22 80 et 5000 et meme clé fahim-kp-ajc comme ca le secret Jenkis reste le meme
+````
+#!/bin/bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+usermod -aG docker ubuntu
+````
+
+
+>Fahim-ec2-dockerhost-prod http://3.92.2.219:5000
+
+>Fahim-ec2-dockerhost-staging http://174.129.63.158:5000
+
+
+
+Il faut bien entendu 
+
+    1.le bon port dans le Docker run
+    2.le ssh -o n'accepste que une commande , pas de &&
+    3.nettoyer son env de staging et de prod pour un deploiement futur
+    4.Personaliser son application
