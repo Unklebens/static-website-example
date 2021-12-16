@@ -1,10 +1,14 @@
-Static Website Example
+Fahim's Static Website Example
 ----------------------
 
-To be used with Cloud Academy labs.
+To be used with AJC under Fraze's supervision
+
+# BUILD STATUS
+
+[![Build Status](http://18.207.3.70:8080/buildStatus/icon?job=TP9)](http://18.207.3.70:8080/job/TP9/)
 
 
-License
+License bullshit
 ----------------------
 
 This static website is based on the Dimension template by [HTML5 UP](https://html5up.net/)
