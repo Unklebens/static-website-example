@@ -4,8 +4,8 @@ pipeline {
         IMAGE_NAME = "sitedirane"
         USERNAME = "fahimx"
         CONTAINER_NAME = "staticdiranewebsite"
-        EC2_PRODUCTION_HOST = "3.92.2.219"
-		EC2_STAGING_HOST = "174.129.63.158"
+        EC2_PRODUCTION_HOST = "3.80.182.159"
+		EC2_STAGING_HOST = "3.92.214.193"
     }
 
     agent none
